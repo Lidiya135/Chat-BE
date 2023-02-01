@@ -71,7 +71,7 @@ const UsersController = {
 
     getById: async (req, res) => {
         try {
-          const { id } = req.params.id;
+          const id = req.params.id;
           const result = await getById(id);
           if (result) {
             response(res, 200, true, result.rows, 'get user by id success');

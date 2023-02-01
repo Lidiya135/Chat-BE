@@ -44,8 +44,7 @@ const getAll = () => {
   const getById = (id) => {
     return new Promise((resolve, reject) =>
       Pool.query(
-        `SELECT * FROM users 
-        WHERE id = '${id}'`,
+        `SELECT * FROM users WHERE id = '${id}'`,
         (err, result) => {
           if (!err) {
             resolve(result);

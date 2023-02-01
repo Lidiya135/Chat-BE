@@ -11,9 +11,9 @@ const create = ({ sender_id, receiver_id, message }) => {
     });
   });
 };
-const getMessage = (sender_id, receiver_id) => {
-  console.log(sender_id);
-  console.log(receiver_id);
+const getMessages = (sender_id, receiver_id) => {
+  console.log(sender_id, "sender_id_model");
+  console.log(receiver_id, "receiv_id_model");
   return new Promise((resolve, reject) => {
     pool.query(`SELECT * FROM chat where (sender_id = '${sender_id}' AND receiver_id = '${receiver_id}') OR (sender_id = '${receiver_id}' AND receiver_id = '${sender_id}') ORDER BY created_at ASC`, (error, result) => {
       if (!error) {
@@ -26,5 +26,5 @@ const getMessage = (sender_id, receiver_id) => {
 };
 module.exports = {
   create,
-  getMessage,
+  getMessages,
 };
